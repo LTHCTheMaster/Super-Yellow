@@ -1,0 +1,16 @@
+red to_fac
+red 1 one
+red 0 zero
+white to_fac
+teal out to_fac
+teal mem to_fac
+magenta to_fac 0 13
+magenta to_fac 1 14
+bronze to_fac 1
+magenta to_fac 1 14
+gold out to_fac
+yellow 9
+silver out 1
+black #mem
+black three|three three|two six|one three|two
+black #out

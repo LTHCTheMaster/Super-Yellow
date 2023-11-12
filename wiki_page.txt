@@ -12,7 +12,7 @@
 ==Code's specificity==
 * The code is case sensitive
 * All errors are ignored
-* When a line doesn't start with an instruction or contain an error, you can consider it as a comment
+* When a line doesn't start with an instruction or contain an error, you can consider it as a comment at your own risks
 
 ==Variable Types==
 {| class="wikitable"
@@ -183,6 +183,24 @@ when you see <code>message</code> in the commands list above, consider writing t
  silver a b
  silver b a
  yellow 3
+
+===[[Factorial]]===
+ red to_fac
+ red 1 one
+ red 0 zero
+ white to_fac
+ teal out to_fac
+ teal mem to_fac
+ magenta to_fac 0 13
+ magenta to_fac 1 14
+ bronze to_fac 1
+ magenta to_fac 1 14
+ gold out to_fac
+ yellow 9
+ silver out 1
+ black #mem
+ black three|three three|two six|one three|two
+ black #out
 
 ===[[99 bottles of beer]]===
  red counter nine|nine
