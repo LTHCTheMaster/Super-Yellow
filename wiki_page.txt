@@ -1,0 +1,237 @@
+{{infobox proglang
+|name=Super Yellow
+|author=LTHCTheMaster
+|year=[[:Category:2023|2023]]
+|memsys=variables
+|dimensions=One-dimensional languages
+|refimpl=[https://github.com/LTHCTheMaster/Super-Yellow Super Yellow]
+|files=<code>.redgreen</code>
+}}
+'''Super Yellow''' was originally made with the goal to use only color names as instructions.
+
+==Code's specificity==
+* The code is case sensitive
+* All errors are ignored
+* When a line doesn't start with an instruction or contain an error, you can consider it as a comment
+
+==Variable Types==
+{| class="wikitable"
+!Name
+!Description
+!Default Value (code writing equivalent)
+!Default Value (human readable)
+!Default Value (displayed on screen using <code>black</code>)
+|-
+|'''integer'''
+|This type is used to store integer numbers
+|<code>zero</code>
+|0
+|0
+|-
+|'''boolean'''
+|This type is used to store booleans
+|<code>zero</code>
+|<code>false</code>
+|zero
+|-
+|'''string'''
+|This type is used to store strings
+|<code>zero</code>
+|<code>""</code>
+|
+|}
+
+==Commands==
+{| class="wikitable"
+!Command
+!Description
+!Syntax
+|-
+|red
+|Create or modify an integer, Warning: it can change the type of the variable
+|red <code><name></code> <code>[value]</code>
+|-
+|green
+|Create or modify a boolean, Warning: it can change the type of the variable
+|green <code><name></code> <code>[value]</code>
+|-
+|blue
+|Create or modify a string, Warning: it can change the type of the variable
+|blue <code><name></code> <code>[value]</code>
+|-
+|teal
+|copy the value of a variable into another variable, it can create new variables like <code>red</code>, <code>green</code>, <code>blue</code>
+|teal <code><variable></code> <code><source variable></code>
+|-
+|black
+|display a message or the value of a variable
+|black <code>[<message> or #<variable name>]</code>
+|-
+|white
+|ask the user to enter a value
+|white <code><variable name></code> <code>[<message> or #<variable name>]</code>
+|-
+|ultraviolet
+|display a new line
+|ultraviolet
+|-
+|infrared
+|do a carriage return
+|infrared
+|-
+|bronze
+|<code>bronze a b</code> do a = a - b
+|bronze <code><variable name></code> <code><variable name></code>
+|-
+|silver
+|<code>silver a b</code> do a = a + b
+|silver <code><variable name></code> <code><variable name></code>
+|-
+|gold
+|<code>gold a b</code> do a = a * b, if a is a string and b an integer: do a = a + a + ... + a (b times)
+|gold <code><variable name></code> <code><variable name></code>
+|-
+|purple
+|<code>purple a b</code> do a = a // b (Python equivalent)
+|purple <code><variable name></code> <code><variable name></code>
+|-
+|russet
+|<code>russet a b</code> do a = a % b
+|russet <code><variable name></code>
+|-
+|orange
+|<code>orange a</code> do a = !a (logical not)
+|orange <code><variable name></code> <code><variable name></code>
+|-
+|pink
+|<code>pink a b</code> do a = a & b (logical and)
+|pink <code><variable name></code> <code><variable name></code>
+|-
+|brown
+|<code>brown a b</code> do a = a | b (logical or)
+|brown <code><variable name></code> <code><variable name></code>
+|-
+|yellow
+|goto the specified line (start counting line from 1)
+|yellow <code><line number></code>
+|-
+|magenta
+|goto the specified line if a == b (start counting line from 1)
+|magenta <code><variable name></code> <code><variable name></code> <code><line number></code>
+|-
+|cyan
+|goto the specified line if a != b (start counting line from 1)
+|cyan <code><variable name></code> <code><variable name></code> <code><line number></code>
+|-
+|gray
+|goto the specified line if a > b (start counting line from 1)
+|gray <code><variable name></code> <code><variable name></code> <code><line number></code>
+|-
+|grey
+|goto the specified line if a < b (start counting line from 1)
+|grey <code><variable name></code> <code><variable name></code> <code><line number></code>
+|}
+
+==Value Writing==
+when you see <code>value</code> in the commands list above check the details below:
+* if the variable is a boolean write <code>one</code> if you want true or anything else for false
+* if the variable is an integer write each digit in their word form and put a <code>|</code> between each word, for example: 854 <=> <code>eight|five|four</code>, 37 <=> <code>three|seven</code>
+* if the variable is a string: all wanted characters are separated with one space character, each character is written its decimal unicode written like integer values for integer variables, for example: <code>o</code> <=> <code>one|one|one</code>, <code>bottle</code> <=> <code>three|two nine|eight one|one|one one|one|six one|one|six one|zero|eight one|zero|one</code>
+
+when you see <code>message</code> in the commands list above, consider writing the value for a string variable
+
+==Examples==
+
+===[[Hello World!]]===
+ black seven|two one|zero|one one|zero|eight one|zero|eight one|one|one four|four three|two one|one|nine one|one|one one|one|four one|zero|eight one|zero|zero three|three
+
+===[[Truth Machine]]===
+ red truth
+ red 1 one
+ red 0 zero
+ white truth
+ magenta truth 1 8
+ magenta truth 0 10
+ yellow 11
+ black #truth
+ yellow 8
+ black #truth
+
+===[[Cat program]]===
+ blue cat
+ white cat
+ black #cat
+
+===[[Looping Counter]]===
+ blue out four|two
+ teal * out
+ black #out
+ silver out *
+ ultraviolet
+ yellow 3
+
+===[[Infinite Loop]]===
+ yellow 1
+
+===[[Fibonacci sequence]]===
+ red a zero
+ red b one
+ black #a
+ ultraviolet
+ black #b
+ ultraviolet
+ silver a b
+ silver b a
+ yellow 3
+
+===[[99 bottles of beer]]===
+ red counter nine|nine
+ red 2 two
+ red 1 one
+ red 0 zero
+ blue no seven|eight one|one|one
+ blue bottle three|two nine|eight one|one|one one|one|six one|one|six one|zero|eight one|zero|one
+ blue s one|one|five
+ blue of_beer three|two one|one|one one|zero|two three|two nine|eight one|zero|one one|zero|one one|one|four
+ blue on_the_wall three|two one|one|one one|one|zero three|two one|one|six one|zero|four one|zero|one three|two one|one|nine nine|seven one|zero|eight one|zero|eight
+ blue , four|four
+ blue . four|six
+ teal on_the_wall_2 on_the_wall
+ silver on_the_wall ,
+ silver on_the_wall_2 .
+ teal of_beer_on_the_wall of_beer
+ silver of_beer_on_the_wall on_the_wall
+ teal of_beer_on_the_wall_2 of_beer
+ silver of_beer_on_the_wall_2 on_the_wall_2
+ blue take_one_down_pass_it_around eight|four nine|seven one|zero|seven one|zero|one three|two one|one|one one|one|zero one|zero|one three|two one|zero|zero one|one|one one|one|nine one|one|zero four|four three|two one|one|two nine|seven one|one|five one|one|five three|two one|zero|five one|one|six three|two nine|seven one|one|four one|one|one one|one|seven one|one|zero one|zero|zero four|four
+ black #counter
+ black #bottle
+ grey counter 2 24
+ black #s
+ black #of_beer_on_the_wall
+ ultraviolet
+ black #counter
+ black #bottle
+ grey counter 2 30
+ black #s
+ black #of_beer
+ black #.
+ ultraviolet
+ black #take_one_down_pass_it_around
+ ultraviolet
+ bronze counter 1
+ grey counter 1 39
+ black #counter
+ yellow 40
+ black #no
+ black #bottle
+ magenta counter 1 43
+ black #s
+ black #of_beer_on_the_wall_2
+ ultraviolet
+ ultraviolet
+ magenta counter 0 48
+ yellow 20
+
+[[Category:Languages]]
+[[Category:2023]]
