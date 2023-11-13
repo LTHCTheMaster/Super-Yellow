@@ -3,14 +3,14 @@ from sys import argv
 
 class Stack:
 	def __init__(self):
-		self.__stack: list[list[int] | bool | str] = []
+		self.__stack: list[list[int] | bool | str | int] = []
 	
-	def push(self, value: list[int] | bool | str):
+	def push(self, value: list[int] | bool | str | int):
 		if isinstance(value, Stack): return
 		if isinstance(value, list): self.__stack.append(value.copy())
 		else: self.__stack.append(value)
 	
-	def pop(self) -> list[int] | bool | str:
+	def pop(self) -> list[int] | bool | str | int:
 		if len(self.__stack) > 0: return self.__stack.pop()
 		return None
 
@@ -47,6 +47,7 @@ NUMBERS: dict = {
 	"eight": 8,
 	"nine": 9
 }
+index_stack: Stack = Stack()
 
 def red(cmd: list[str]):
 	if len(cmd) > 1:
@@ -86,8 +87,8 @@ def azure(cmd: list[str]):
 		variables[cmd[0]] = Stack()
 
 def crimson(cmd: list[str]):
+	var_name: str = cmd[0]
 	if len(cmd) > 1:
-		var_name: str = cmd[0]
 		if var_name in variables:
 			get: list[int] | str | bool | Stack = variables[var_name]
 			if isinstance(get, Stack):
@@ -281,19 +282,24 @@ def interpret(filepath: str):
 				case "white":
 					white(cmd[1:])
 				case "yellow":
-					index = int(cmd[1]) - 2
+					if cmd[1] == "0": index = index_stack.pop()
+					else: index = int(cmd[1]) - 2
 				case "magenta":
 					if compare(cmd[1], cmd[2]):
-						index = int(cmd[3]) - 2
+						if cmd[3] == "0": index = index_stack.pop()
+						else: index = int(cmd[3]) - 2
 				case "cyan":
 					if not compare(cmd[1], cmd[2]):
-						index = int(cmd[3]) - 2
+						if cmd[3] == "0": index = index_stack.pop()
+						else: index = int(cmd[3]) - 2
 				case "gray":
 					if more(cmd[1], cmd[2]):
-						index = int(cmd[3]) - 2
+						if cmd[3] == "0": index = index_stack.pop()
+						else: index = int(cmd[3]) - 2
 				case "grey":
 					if less(cmd[1], cmd[2]):
-						index = int(cmd[3]) - 2
+						if cmd[3] == "0": index = index_stack.pop()
+						else: index = int(cmd[3]) - 2
 				case "infrared":
 					print("",end="\r")
 				case "ultraviolet":
@@ -323,7 +329,10 @@ def interpret(filepath: str):
 				case "vermilion":
 					if isinstance(variables[cmd[1]], Stack):
 						if variables[cmd[1]].isEmpty:
-							index = int(cmd[2]) - 2
+							if cmd[2] == "0": index = index_stack.pop()
+							else: index = int(cmd[2]) - 2
+				case "lime":
+					index_stack.push(index+1)
 		except KeyboardInterrupt:
 			raise KeyboardInterrupt()
 		except:
