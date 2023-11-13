@@ -5,11 +5,6 @@ class Stack:
 	def __init__(self):
 		self.__stack: list[list[int] | bool | str] = []
 	
-	def copy(self):
-		other = Stack()
-		other.__stack = self.__stack.copy()
-		return other
-	
 	def push(self, value: list[int] | bool | str):
 		if isinstance(value, Stack): return
 		if isinstance(value, list): self.__stack.append(value.copy())
@@ -255,9 +250,9 @@ def orange(var_name: str):
 		variables[var_name] = new_value
 
 def teal(cmd: list[str]):
-	if isinstance(variables[cmd[1]], (Stack, list)):
+	if isinstance(variables[cmd[1]], list):
 		variables[cmd[0]] = variables[cmd[1]].copy()
-	else:
+	elif isinstance(variables[cmd[1]], (str, bool)):
 		variables[cmd[0]] = variables[cmd[1]]
 
 def interpret(filepath: str):
