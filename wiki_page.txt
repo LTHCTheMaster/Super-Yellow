@@ -159,6 +159,30 @@
 * <code>black one|zero</code> is equivalent to <code>ultraviolet</code>
 * <code>black one|three</code> is equivalent to <code>infrared</code>
 
+====Equivalent line speedtest====
+{| class="wikitable"
+!Command 1
+!Time (in seconds)
+!Command 2
+!Time (in seconds)
+!Number of lines tested in a file with only this line
+!"Timestamp" of the test report in this table just after the test (using datetime (Python))
+|-
+|<code>black one|zero</code>
+|24.926881790161133
+|<code>ultraviolet</code>
+|20.20875382423401
+|60000
+|2023-11-13 15:19:49.643338
+|-
+|<code>black one|three</code>
+|9.278607845306396
+|<code>infrared</code>
+|7.548259973526001
+|60000
+|2023-11-13 15:26:11.542389
+|}
+
 ===Value Writing===
 when you see <code>value</code> in the commands list above check the details below:
 * if the variable is a boolean write <code>one</code> if you want true or anything else for false
