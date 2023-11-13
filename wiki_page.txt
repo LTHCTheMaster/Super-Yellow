@@ -160,6 +160,14 @@
 |indigo
 |split string in two parts, it can create new variables like <code>blue</code>
 |indigo <code><variable name></code> <code><variable name></code>
+|-
+|sepia
+|use an integer as a code to put the corresponding char in the variable
+|sepia <code><variable name></code>
+|-
+|lavender
+|convert a char to the corresponding unicode code and put this code in the variable
+|lavender <code><variable name></code>
 |}
 
 ===Some More Details===
@@ -458,6 +466,20 @@ Ask the user to enter a text and calculate the length of this text
  black #user_input
  black three|two six|one three|two
  black #length
+
+====0 to z====
+
+display all characters from 0 to z
+
+ red current four|eight
+ red max one|two|two
+ red 1 one
+ gray current max 10
+ sepia current
+ black #current
+ lavender current
+ silver current 1
+ yellow 4
 
 [[Category:Languages]]
 [[Category:2023]]

@@ -271,6 +271,17 @@ def indigo(cmd: list[str]):
 		else:
 			variables[var_name_1] = ""
 
+def sepia(cmd: list[str]):
+	tmp = variables[cmd[0]]
+	if isinstance(tmp, list):
+		variables[cmd[0]] = chr(int("".join([str(i) for i in tmp])))
+
+def lavender(cmd: list[str]):
+	tmp: str | list[int] | bool | Stack = variables[cmd[0]]
+	if isinstance(tmp, str):
+		if len(tmp) == 1:
+			variables[cmd[0]] = [int(i) for i in list(str(ord(tmp)))]
+
 def interpret(filepath: str):
 	content: list[str] = []
 	try:
@@ -352,6 +363,10 @@ def interpret(filepath: str):
 					khaki(cmd[1:])
 				case "indigo":
 					indigo(cmd[1:])
+				case "sepia":
+					sepia(cmd[1:])
+				case "lavender":
+					lavender(cmd[1:])
 		except KeyboardInterrupt:
 			raise KeyboardInterrupt()
 		except:
