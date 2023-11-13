@@ -118,23 +118,23 @@
 |brown <code><variable name></code> <code><variable name></code>
 |-
 |yellow
-|goto the specified line (start counting line from 1)
+|goto the specified line (start counting line from 1), if you use <code>0</code> as line number, it will jump to the index written on the top of something internally called <code>index_stack</code> and remove this index from this stack, it's usefull to create some sort of functions
 |yellow <code><line number></code>
 |-
 |magenta
-|goto the specified line if a == b (start counting line from 1)
+|goto the specified line if a == b (start counting line from 1), if you use <code>0</code> as line number, it will jump to the index written on the top of something internally called <code>index_stack</code> and remove this index from this stack, it's usefull to create some sort of functions
 |magenta <code><variable name></code> <code><variable name></code> <code><line number></code>
 |-
 |cyan
-|goto the specified line if a != b (start counting line from 1)
+|goto the specified line if a != b (start counting line from 1), if you use <code>0</code> as line number, it will jump to the index written on the top of something internally called <code>index_stack</code> and remove this index from this stack, it's usefull to create some sort of functions
 |cyan <code><variable name></code> <code><variable name></code> <code><line number></code>
 |-
 |gray
-|goto the specified line if a > b (start counting line from 1)
+|goto the specified line if a > b (start counting line from 1), if you use <code>0</code> as line number, it will jump to the index written on the top of something internally called <code>index_stack</code> and remove this index from this stack, it's usefull to create some sort of functions
 |gray <code><variable name></code> <code><variable name></code> <code><line number></code>
 |-
 |grey
-|goto the specified line if a < b (start counting line from 1)
+|goto the specified line if a < b (start counting line from 1), if you use <code>0</code> as line number, it will jump to the index written on the top of something internally called <code>index_stack</code> and remove this index from this stack, it's usefull to create some sort of functions
 |grey <code><variable name></code> <code><variable name></code> <code><line number></code>
 |-
 |azure
@@ -146,8 +146,12 @@
 |crimson <code><stack variable name></code> <code>[<variable name>]</code>
 |-
 |vermilion
-|goto the specified line if the specified stack is empty (start counting line from 1)
+|goto the specified line if the specified stack is empty (start counting line from 1), if you use <code>0</code> as line number, it will jump to the index written on the top of something internally called <code>index_stack</code> and remove this index from this stack, it's usefull to create some sort of functions
 |vermilion <code><stack variable name></code> <code><line number></code>
+|-
+|lime
+|push on the top of something internally called <code>index_stack</code> the index of the current line + 2
+|lime
 |}
 
 ===Some More Details===
@@ -165,10 +169,12 @@ when you see <code>message</code> in the commands list above, consider writing t
 
 ==Examples==
 
-===[[Hello World!]]===
+===[[Popular problem]]===
+
+====[[Hello World!]]====
  black seven|two one|zero|one one|zero|eight one|zero|eight one|one|one four|four three|two one|one|nine one|one|one one|one|four one|zero|eight one|zero|zero three|three
 
-===[[Truth Machine]]===
+====[[Truth Machine]]====
  red truth
  red 1 one
  red 0 zero
@@ -180,12 +186,12 @@ when you see <code>message</code> in the commands list above, consider writing t
  yellow 8
  black #truth
 
-===[[Cat program]]===
+====[[Cat program]]====
  blue cat
  white cat
  black #cat
 
-===[[Looping Counter]]===
+====[[Looping Counter]]====
  blue out four|two
  teal * out
  black #out
@@ -193,10 +199,10 @@ when you see <code>message</code> in the commands list above, consider writing t
  ultraviolet
  yellow 3
 
-===[[Infinite Loop]]===
+====[[Infinite Loop]]====
  yellow 1
 
-===[[Fibonacci sequence]]===
+====[[Fibonacci sequence]]====
  red a zero
  red b one
  black #a
@@ -207,7 +213,7 @@ when you see <code>message</code> in the commands list above, consider writing t
  silver b a
  yellow 3
 
-===[[Factorial]]===
+====[[Factorial]]====
  red to_fac
  red 1 one
  red 0 zero
@@ -225,7 +231,7 @@ when you see <code>message</code> in the commands list above, consider writing t
  black three|three three|two six|one three|two
  black #out
 
-===[[99 bottles of beer]]===
+====[[99 bottles of beer]]====
  red counter nine|nine
  red 2 two
  red 1 one
@@ -274,7 +280,9 @@ when you see <code>message</code> in the commands list above, consider writing t
  magenta counter 0 48
  yellow 20
 
-===Simple counting program===
+===Some other examples programs===
+
+====Simple counting program====
  red out zero
  red 1 one
  black three|two three|two
@@ -283,7 +291,7 @@ when you see <code>message</code> in the commands list above, consider writing t
  infrared
  yellow 3
 
-===Reverse the order of a stack===
+====Reverse the order of a stack====
  red counter
  red 1 one
  red max one|zero
@@ -304,6 +312,35 @@ when you see <code>message</code> in the commands list above, consider writing t
  vermilion normal 20
  yellow 16
  black #reversed
+
+====A test of a sort of PEEK operation for stack====
+ red counter
+ red 1 one
+ red max one|zero
+ azure stack
+ red tmp
+ 
+ azure stack counter
+ silver counter 1
+ azure stack counter
+ cyan counter max 8
+ 
+ yellow 18
+ 
+ crimson stack tmp
+ azure stack tmp
+ yellow 0
+ 
+ lime
+ yellow 14
+ black #stack
+ ultraviolet
+ black #tmp
+ ultraviolet
+ crimson stack
+ vermilion stack 27
+ yellow 18
+ black seven|zero one|zero|five one|one|zero one|zero|five one|one|five one|zero|four three|three
 
 [[Category:Languages]]
 [[Category:2023]]
