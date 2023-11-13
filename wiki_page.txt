@@ -152,6 +152,14 @@
 |lime
 |push on the top of something internally called <code>index_stack</code> the index of the current line + 2
 |lime
+|-
+|khaki
+|set the value of a string to the reverse value of this string
+|khaki <code>variable name</code>
+|-
+|indigo
+|split string in two parts, it can create new variables like <code>blue</code>
+|indigo <code><variable name></code> <code><variable name></code>
 |}
 
 ===Some More Details===

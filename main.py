@@ -256,6 +256,21 @@ def teal(cmd: list[str]):
 	elif isinstance(variables[cmd[1]], (str, bool)):
 		variables[cmd[0]] = variables[cmd[1]]
 
+def khaki(cmd: list[str]):
+	if isinstance(variables[cmd[0]], str): variables[cmd[0]] = variables[cmd[0]][::-1]
+
+def indigo(cmd: list[str]):
+	var_name_0 = cmd[0]
+	var_name_1 = cmd[1]
+	if isinstance(variables[var_name_0], str):
+		tmp: str = variables[var_name_0]
+		cut_pos: int = len(tmp) // 2
+		if len(tmp) > 1:
+			variables[var_name_0] = tmp[:cut_pos]
+			variables[var_name_1] = tmp[cut_pos:]
+		else:
+			variables[var_name_1] = ""
+
 def interpret(filepath: str):
 	content: list[str] = []
 	try:
@@ -333,6 +348,10 @@ def interpret(filepath: str):
 							else: index = int(cmd[2]) - 2
 				case "lime":
 					index_stack.push(index+1)
+				case "khaki":
+					khaki(cmd[1:])
+				case "indigo":
+					indigo(cmd[1:])
 		except KeyboardInterrupt:
 			raise KeyboardInterrupt()
 		except:
