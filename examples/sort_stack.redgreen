@@ -1,0 +1,44 @@
+black seven|two one|one|one one|one|nine three|two one|zero|nine nine|seven one|one|zero one|two|one three|two one|one|zero one|one|seven one|zero|nine nine|eight one|zero|one one|one|four one|one|five three|two six|three one|zero
+red max
+white max
+ultraviolet
+red 1 one
+red counter
+red input
+azure orig_stack
+
+silver counter 1
+white input
+azure orig_stack input
+cyan counter max 10
+black #orig_stack
+
+azure helper_stack
+red element
+red tmp
+red tmp2
+
+vermilion orig_stack 34
+crimson orig_stack element
+vermilion helper_stack 31
+lime
+yellow 39
+magenta tmp element 31
+gray tmp element 31
+crimson helper_stack tmp2
+azure orig_stack tmp2
+yellow 23
+azure helper_stack element
+yellow 21
+
+crimson helper_stack tmp
+azure orig_stack tmp
+vermilion helper_stack 43
+yellow 34
+
+crimson helper_stack tmp
+azure helper_stack tmp
+yellow 0
+
+ultraviolet
+black #orig_stack
