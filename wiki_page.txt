@@ -66,7 +66,7 @@
 |blue <code><name></code> <code>[value]</code>
 |-
 |teal
-|copy the value of a variable into another variable, it can create new variables like <code>red</code>, <code>green</code>, <code>blue</code>
+|copy the value of a variable into another variable, it can create new variables like <code>red</code>, <code>green</code>, <code>blue</code>, you can't copy stack
 |teal <code><variable></code> <code><source variable></code>
 |-
 |black
