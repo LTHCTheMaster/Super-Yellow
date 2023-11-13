@@ -39,6 +39,12 @@
 |<code>zero</code>
 |<code>""</code>
 |
+|-
+|'''stack'''
+|This type is a stack in wich you can put everything except stack
+|
+|<code>empty</code>, <code>[]</code> (Python equivalent but using a list)
+|<code>empty</code>
 |}
 
 ==Commands==
@@ -130,9 +136,26 @@
 |grey
 |goto the specified line if a < b (start counting line from 1)
 |grey <code><variable name></code> <code><variable name></code> <code><line number></code>
+|-
+|azure
+|create a stack or add a value above the stack, you can't put a stack in another stack
+|azure <code><name></code> <code>[<source variable name>]</code>
+|-
+|crimson
+|remove the first item on the top of the stack, you can get and store this item in a variable
+|crimson <code><stack variable name></code> <code>[<variable name>]</code>
+|-
+|vermilion
+|goto the specified line if the specified stack is empty (start counting line from 1)
+|vermilion <code><stack variable name></code> <code><line number></code>
 |}
 
-==Value Writing==
+===Some More Details===
+* if you use <code>crimson</code> on an empty stack and store the value, you will get the following value in your variable: <code>\#$µ%¤\@^</code>
+* <code>black one|zero</code> is equivalent to <code>ultraviolet</code>
+* <code>black one|three</code> is equivalent to <code>infrared</code>
+
+===Value Writing===
 when you see <code>value</code> in the commands list above check the details below:
 * if the variable is a boolean write <code>one</code> if you want true or anything else for false
 * if the variable is an integer write each digit in their word form and put a <code>|</code> between each word, for example: 854 <=> <code>eight|five|four</code>, 37 <=> <code>three|seven</code>
@@ -259,6 +282,28 @@ when you see <code>message</code> in the commands list above, consider writing t
  silver out 1
  infrared
  yellow 3
+
+===Reverse the order of a stack===
+ red counter
+ red 1 one
+ red max one|zero
+ azure normal
+ azure reversed
+ red tmp
+ 
+ azure normal counter
+ silver counter 1
+ azure normal counter
+ cyan counter max 9
+ 
+ black #normal
+ ultraviolet
+ 
+ crimson normal tmp
+ azure reversed tmp
+ vermilion normal 20
+ yellow 16
+ black #reversed
 
 [[Category:Languages]]
 [[Category:2023]]

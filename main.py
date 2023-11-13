@@ -1,7 +1,45 @@
 from os import path
 from sys import argv
 
-variables: dict = dict()
+class Stack:
+	def __init__(self):
+		self.__stack: list[list[int] | bool | str] = []
+	
+	def copy(self):
+		other = Stack()
+		other.__stack = self.__stack.copy()
+		return other
+	
+	def push(self, value: list[int] | bool | str):
+		if isinstance(value, Stack): return
+		if isinstance(value, list): self.__stack.append(value.copy())
+		else: self.__stack.append(value)
+	
+	def pop(self) -> list[int] | bool | str:
+		if len(self.__stack) > 0: return self.__stack.pop()
+		return None
+
+	@property
+	def isEmpty(self) -> bool:
+		return len(self.__stack) == 0
+	
+	def __str__(self) -> str:
+		if self.isEmpty:
+			return "empty"
+		out: list[str] = []
+		todo: int = len(self.__stack)
+		local_copy = self.__stack.copy()
+		for _ in  range(todo):
+			tmp = local_copy.pop()
+			if isinstance(tmp, str):
+				out.append(tmp)
+			elif isinstance(tmp, bool):
+				out.append("one" if tmp else "zero")
+			else:
+				out.append("".join([str(i) for i in tmp]))
+		return ">  " + "  >  ".join(out) + "  ]"
+
+variables: dict[str, str | bool | list[int] | Stack] = dict()
 NUMBERS: dict = {
 	"zero": 0,
 	"one": 1,
@@ -39,14 +77,42 @@ def blue(cmd: list[str]):
 	elif len(cmd) == 1:
 		variables[cmd[0]] = ""
 
+def azure(cmd: list[str]):
+	if len(cmd) > 1:
+		var_name: str = cmd[0]
+		if var_name in variables:
+			get: list[int] | str | bool | Stack = variables[var_name]
+			if isinstance(get, Stack):
+				variables[var_name].push(variables[cmd[1]])
+			else:
+				variables[var_name] = Stack()
+				variables[var_name].push(variables[cmd[1]])
+	elif len(cmd) == 1:
+		variables[cmd[0]] = Stack()
+
+def crimson(cmd: list[str]):
+	if len(cmd) > 1:
+		var_name: str = cmd[0]
+		if var_name in variables:
+			get: list[int] | str | bool | Stack = variables[var_name]
+			if isinstance(get, Stack):
+				tmp = variables[var_name].pop()
+				variables[cmd[1]] = "\\#$µ%¤\\@^" if tmp is None else tmp
+	elif len(cmd) == 1:
+		get: list[int] | str | bool | Stack = variables[var_name]
+		if isinstance(get, Stack):
+			variables[var_name].pop()
+
 def blackVar(var_name: str):
-	local_var: list[int] | str | bool = variables[var_name]
+	local_var: list[int] | str | bool | Stack = variables[var_name]
 	if isinstance(local_var, str):
 		print(local_var, end="")
 	elif isinstance(local_var, bool):
 		print("one" if local_var else "zero",end="")
-	else:
+	elif isinstance(local_var, list):
 		print("".join([str(i) for i in local_var]),end="")
+	else:
+		print(local_var, end="")
 
 def black(cmd: list[str]):
 	if len(cmd) == 1:
@@ -188,6 +254,12 @@ def orange(var_name: str):
 		new_value: bool = not local_var
 		variables[var_name] = new_value
 
+def teal(cmd: list[str]):
+	if isinstance(variables[cmd[1]], (Stack, list)):
+		variables[cmd[0]] = variables[cmd[1]].copy()
+	else:
+		variables[cmd[0]] = variables[cmd[1]]
+
 def interpret(filepath: str):
 	content: list[str] = []
 	try:
@@ -238,7 +310,7 @@ def interpret(filepath: str):
 				case "gold":
 					gold(cmd[1], cmd[2])
 				case "teal":
-					variables[cmd[1]] = variables[cmd[2]]
+					teal(cmd[1:])
 				case "purple":
 					purple(cmd[1], cmd[2])
 				case "russet":
@@ -249,6 +321,14 @@ def interpret(filepath: str):
 					brown(cmd[1], cmd[2])
 				case "orange":
 					orange(cmd[1])
+				case "azure":
+					azure(cmd[1:])
+				case "crimson":
+					crimson(cmd[1:])
+				case "vermilion":
+					if isinstance(variables[cmd[1]], Stack):
+						if variables[cmd[1]].isEmpty:
+							index = int(cmd[2]) - 2
 		except KeyboardInterrupt:
 			raise KeyboardInterrupt()
 		except:
