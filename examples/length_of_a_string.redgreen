@@ -1,0 +1,31 @@
+black six|nine one|one|zero one|one|six one|zero|one one|one|four three|two one|one|five one|one|one one|zero|nine one|zero|one one|one|six one|zero|four one|zero|five one|one|zero one|zero|three five|eight one|zero
+blue user_input
+white user_input
+blue default
+teal copy_of_user_input user_input
+red length
+red 1 one
+
+magenta copy_of_user_input default 27
+silver length 1
+lime
+yellow 16
+teal copy_of_user_input splitted_copy
+yellow 9
+
+teal instr copy_of_user_input
+indigo instr splitted
+teal splitted_copy splitted
+magenta splitted default 25
+indigo instr splitted
+teal tmp splitted
+silver tmp splitted_copy
+teal splitted_copy tmp
+yellow 19
+yellow 0
+
+ultraviolet
+black one|zero|eight one|zero|one one|one|zero one|zero|three one|one|six one|zero|four three|two one|one|one one|zero|two five|eight three|two
+black #user_input
+black three|two six|one three|two
+black #length
