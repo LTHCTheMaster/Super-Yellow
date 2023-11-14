@@ -298,6 +298,22 @@ def beige(cmd: list[str]):
 			new_value: list[int] = [int(i) for i in list(input("")[0])]
 			variables[cmd[0]] = new_value
 
+def mint(cmd: list[str]):
+	if len(cmd) > 0:
+		local_var: list[int] | str | bool = variables[cmd[0]]
+		if isinstance(local_var, str):
+			if len(cmd) > 1:
+				black(cmd[1:])
+			new_value: str = input("")[-1]
+			variables[cmd[0]] = new_value
+		elif isinstance(local_var, bool):
+			pass
+		else:
+			if len(cmd) > 1:
+				black(cmd[1:])
+			new_value: list[int] = [int(i) for i in list(input("")[-1])]
+			variables[cmd[0]] = new_value
+
 def interpret(filepath: str):
 	content: list[str] = []
 	try:
@@ -385,6 +401,8 @@ def interpret(filepath: str):
 					lavender(cmd[1:])
 				case "beige":
 					beige(cmd[1:])
+				case "mint":
+					mint(cmd[1:])
 		except KeyboardInterrupt:
 			raise KeyboardInterrupt()
 		except:
