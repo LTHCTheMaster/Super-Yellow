@@ -168,6 +168,10 @@
 |lavender
 |convert a char to the corresponding unicode code and put this code in the variable
 |lavender <code><variable name></code>
+|-
+|beige
+|ask the user to enter a value, the variable receive only the first char of the user input
+|beige <code><variable name></code> <code>[<message> or #<variable name>]</code>
 |}
 
 ===Some More Details===
