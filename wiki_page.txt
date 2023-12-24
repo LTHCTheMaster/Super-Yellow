@@ -117,6 +117,10 @@
 |<code>brown a b</code> do a = a | b (logical or)
 |brown <code><variable name></code> <code><variable name></code>
 |-
+|fuscia
+|<code>fuscia a b</code> do a = a xor b (logical xor)
+|fuscia <code><variable name></code> <code><variable name></code>
+|-
 |yellow
 |goto the specified line (start counting line from 1), if you use <code>0</code> as line number, it will jump to the index written on the top of something internally called <code>index_stack</code> and remove this index from this stack, it's usefull to create some sort of functions
 |yellow <code><line number></code>

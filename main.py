@@ -244,6 +244,14 @@ def brown(var_name_0: str, var_name_1: str):
 			new_value: bool = local_var_0 or local_var_1
 			variables[var_name_0] = new_value
 
+def fuscia(var_name_0: str, var_name_1: str):
+	local_var_0: list[int] | str | bool = variables[var_name_0]
+	local_var_1: list[int] | str | bool = variables[var_name_1]
+	if isinstance(local_var_0, bool):
+		if isinstance(local_var_1, bool):
+			new_value: bool = local_var_0 ^ local_var_1
+			variables[var_name_0] = new_value
+
 def orange(var_name: str):
 	local_var: list[int] | str | bool = variables[var_name]
 	if isinstance(local_var, bool):
@@ -378,6 +386,8 @@ def interpret(filepath: str):
 					pink(cmd[1], cmd[2])
 				case "brown":
 					brown(cmd[1], cmd[2])
+				case "fuscia":
+					fuscia(cmd[1], cmd[2])
 				case "orange":
 					orange(cmd[1])
 				case "azure":
