@@ -114,7 +114,7 @@
 |pink <code><variable name></code> <code><variable name></code>
 |-
 |brown
-|<code>brown a b</code> do a = a | b (logical or)
+|<code>brown a b</code> do a = a or b (logical or)
 |brown <code><variable name></code> <code><variable name></code>
 |-
 |fuscia
@@ -492,6 +492,9 @@ display all characters from 0 to z
  lavender current
  silver current 1
  yellow 4
+
+==A Simple Brainfuck Interpreter==
+[https://github.com/LTHCTheMaster/Super-Yellow/blob/master/examples/simple_brainfuck_interpreter/bf.redgreen Brainfuck interpreter] inspired by [https://esolangs.org/wiki/Brainfuck_Python_interpreter brainfuck Python interpreter]
 
 [[Category:Languages]]
 [[Category:2023]]
