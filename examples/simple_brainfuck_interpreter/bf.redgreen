@@ -1,0 +1,293 @@
+# Const
+red default_r
+green default_g
+blue default_b
+red 1 one
+
+
+# Variables
+blue to_len
+red length
+red index
+blue get_in
+blue char_in
+
+
+
+
+
+
+
+
+
+# Entry Point
+yellow 121
+
+
+# Length
+red length zero
+teal to_len_ to_len
+magenta to_len_ default_b 0
+silver length 1
+indigo to_len_ splitted
+teal splitted_copy splitted
+magenta splitted default_b 40
+indigo to_len_ splitted
+teal tmp splitted
+silver tmp splitted_copy
+teal splitted_copy tmp
+yellow 34
+teal to_len_ splitted_copy
+yellow 30
+
+
+# Remove First Char
+teal to_len_ to_len
+magenta to_len_ default_b 0
+indigo to_len_ splitted
+teal splitted_copy splitted
+magenta splitted default_b 55
+indigo to_len_ splitted
+teal tmp splitted
+silver tmp splitted_copy
+teal splitted_copy tmp
+yellow 49
+teal to_len_ splitted_copy
+yellow 0
+
+
+# Get First Char
+teal to_len_ to_len
+magenta to_len_ default_b 0
+indigo to_len_ splitted
+teal splitted_copy to_len_
+magenta splitted default_b 0
+indigo to_len_ splitted
+yellow 64
+
+
+# Get Char at Index
+blue out
+teal to_len get_in
+lime
+yellow 28
+grey index length 76
+yellow 0
+magenta index default_r 83
+teal to_len get_in
+lime
+yellow 45
+teal get_in to_len_
+bronze index 1
+yellow 76
+teal to_len get_in
+lime
+yellow 60
+teal out to_len_
+yellow 0
+
+
+# Set Char at Index
+blue out
+teal to_len get_in
+lime
+yellow 28
+grey index length 98
+teal out get_in
+yellow 0
+red loop_index zero
+magenta loop_index length 0
+magenta loop_index index 106
+teal to_len get_in
+lime
+yellow 60
+silver out to_len_
+yellow 107
+silver out char_in
+teal to_len get_in
+lime
+yellow 45
+teal get_in to_len_
+silver loop_index 1
+yellow 99
+
+
+
+
+
+#### Brainfuck Interpreter
+
+# Instructions
+blue + four|three
+blue - four|five
+blue > six|two
+blue < six|zero
+blue [ nine|one
+blue ] nine|three
+blue . four|six
+blue , four|four
+
+# Interpreter Variables
+blue tape zero
+red 256 two|five|six
+gold tape 256
+azure s
+blue matches zero
+blue code
+red i zero
+blue j
+red m
+red cp zero
+red p zero
+
+# Get the user code
+white code
+ultraviolet
+teal to_len code
+lime
+yellow 28
+teal code_length length
+gold matches code_length
+
+# Locate Loops
+magenta i code_length 191
+teal get_in code
+teal index i
+lime
+yellow 70
+teal j out
+cyan j [ 162
+azure s i
+yellow 189
+cyan j ] 181
+crimson s m
+teal get_in matches
+sepia i
+teal char_in i
+lavender i
+teal index m
+lime
+yellow 91
+teal matches out
+teal get_in matches
+sepia m
+teal char_in m
+lavender m
+teal index i
+lime
+yellow 91
+teal matches out
+yellow 189
+teal get_in matches
+sepia i
+teal char_in i
+lavender i
+teal index i
+lime
+yellow 91
+teal matches out
+silver i 1
+yellow 153
+
+# Interpret Code
+blue code_at_cp
+blue tape_at_p
+magenta cp code_length 294
+teal get_in code
+teal index cp
+lime
+yellow 70
+teal code_at_cp out
+cyan code_at_cp + 217
+teal get_in tape
+teal index p
+lime
+yellow 70
+teal tape_at_p out
+lavender tape_at_p
+silver tape_at_p 1
+russet tape_at_p 256
+sepia tape_at_p
+teal get_in tape
+teal char_in tape_at_p
+teal index p
+lime
+yellow 91
+teal tape out
+cyan code_at_cp - 234
+teal get_in tape
+teal index p
+lime
+yellow 70
+teal tape_at_p out
+lavender tape_at_p
+cyan tape_at_p default_r 226
+teal tape_at_p 256
+bronze tape_at_p 1
+sepia tape_at_p
+teal get_in tape
+teal char_in tape_at_p
+teal index p
+lime
+yellow 91
+teal tape out
+cyan code_at_cp , 249
+blue user_input_of_,
+beige user_input_of_,
+magenta user_input_of_, default_b 242
+lavender user_input_of_,
+russet user_input_of_, 256
+sepia user_input_of_,
+yellow 243
+blue user_input_of_, zero
+teal get_in tape
+teal char_in user_input_of_,
+teal index p
+lime
+yellow 91
+teal tape out
+cyan code_at_cp . 255
+teal get_in tape
+teal index p
+lime
+yellow 70
+black #out
+cyan code_at_cp < 259
+cyan p default_r 258
+teal p code_length
+bronze p 1
+cyan code_at_cp > 262
+silver p 1
+russet p code_length
+cyan code_at_cp [ 277
+teal get_in tape
+teal index p
+lime
+yellow 70
+teal tape_at_p out
+lavender tape_at_p
+cyan tape_at_p default_r 277
+teal get_in matches
+teal index cp
+lime
+yellow 70
+teal matches_at_cp out
+lavender matches_at_cp
+teal cp matches_at_cp
+cyan code_at_cp ] 292
+teal get_in tape
+teal index p
+lime
+yellow 70
+teal tape_at_p out
+lavender tape_at_p
+magenta tape_at_p default_r 292
+teal get_in matches
+teal index cp
+lime
+yellow 70
+teal matches_at_cp out
+lavender matches_at_cp
+teal cp matches_at_cp
+silver cp 1
+yellow 195

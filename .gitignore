@@ -2,3 +2,7 @@
 test.redgreen
 helper.py
 test.py
+tests/
+brainfuck/
+main_with_debug.py
+debug/
