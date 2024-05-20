@@ -494,7 +494,7 @@ display all characters from 0 to z
  yellow 4
 
 ==A Simple Brainfuck Interpreter==
-[https://github.com/LTHCTheMaster/Super-Yellow/blob/master/examples/simple_brainfuck_interpreter/bf.redgreen Brainfuck interpreter] inspired by [https://esolangs.org/wiki/Brainfuck_Python_interpreter brainfuck Python interpreter]
+[https://github.com/LTHCTheMaster/Super-Yellow/blob/master/examples/simple_brainfuck_interpreter/bf.redgreen Brainfuck interpreter in Super Yellow] inspired by [https://esolangs.org/wiki/Brainfuck_Python_interpreter brainfuck Python interpreter]
 
 [[Category:Languages]]
 [[Category:2023]]
